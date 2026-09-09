@@ -1,0 +1,29 @@
+# Шаблон docker-compose для нового контейнера CWA (другая тематика книг).
+#
+# Перед запуском замените:
+#   1) container_name  — уникальное имя контейнера (без пробелов)
+#   2) порт            — свободный порт хоста (например 1232:8083)
+#   3) пути библиотеки и папки импорта (своя тематика)
+#
+# После первого запуска (когда CWA скопирует свой код в ./app) примените патчи
+# из ./patches (см. README.md).
+
+services:
+  calibre-books-topic:            # <-- имя сервиса (можно любое)
+    image: ghcr.io/crocodilestick/calibre-web-automated:latest
+    container_name: Books-Topic    # <-- уникальное имя контейнера
+
+    environment:
+      - PUID=1000                  # ID вашего пользователя
+      - PGID=1000                  # ID вашей группы
+      - TZ=Asia/Almaty             # часовой пояс
+      - DOCKER_MODS=crocodilestick/mods:universal-calibre
+    volumes:
+      - ./config:/config                                        # настройки и БД
+      - ./app:/app                                              # код CWA (сюда копировать патчи)
+      - ./custom-cont-init.d:/custom-cont-init.d:ro             # DJVU support (djvulibre + regex)
+      - /home/yurik/data/calibre/books_topic:/calibre-library    # <-- библиотека (своя папка)
+      - /home/yurik/data/calibre/books_topic_dwl:/cwa-book-ingest # <-- папка импорта
+    ports:
+      - 1232:8083                  # <-- свободный порт хоста
+    restart: unless-stopped

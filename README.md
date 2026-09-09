@@ -192,7 +192,7 @@ cp -r ~/data/calibre/cwa_doc/custom-cont-init.d .
 Заменить:
 - `container_name: Books-Topic` → уникальное имя;
 - порт `1232:8083` → свободный порт;
-- пути `/home/yurik/data/calibre/books_topic` и `books_topic_dwl` → свои папки
+- пути `~/data/calibre/books_topic` и `books_topic_dwl` → свои папки
   (папки создадутся автоматически).
 
 ### Шаг 4. Первый запуск

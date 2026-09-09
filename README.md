@@ -114,8 +114,8 @@ AI по обложке не извлекает аннотацию (её нет �
 
 | Порт | Модель | Файл | Назначение |
 |---|---|---|---|
-| 8899 | gemma-4-E4B | `/home/yurik/models/gguf_models/...gemma...gguf` | извлечение метаданных из обложки |
-| 8805 | surya-2 | `/home/yurik/models/gguf_models/surya/surya-2.gguf` | OCR (используется вручную, в CWA не встроен) |
+| 8899 | gemma-4-E4B | `~/models/gguf_models/...gemma...gguf` | извлечение метаданных из обложки |
+| 8805 | surya-2 | `~/models/gguf_models/surya/surya-2.gguf` | OCR (используется вручную, в CWA не встроен) |
 
 **Важно:** изнутри контейнера хост доступен по адресу `http://172.17.0.1` (шлюз
 Docker), а не `127.0.0.1`. Поэтому в настройке CWA `ai_metadata_url` по умолчанию

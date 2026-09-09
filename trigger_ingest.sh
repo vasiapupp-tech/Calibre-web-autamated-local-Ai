@@ -12,7 +12,7 @@
 
 set -e
 
-INGEST="/home/yurik/data/calibre/booksitdwl"
+INGEST="~/data/calibre/booksitdwl"
 CONTAINER="Books-IT"
 
 if [ ! -d "$INGEST" ]; then

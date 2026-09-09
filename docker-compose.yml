@@ -22,8 +22,8 @@ services:
       - ./config:/config                                        # настройки и БД
       - ./app:/app                                              # код CWA (сюда копировать патчи)
       - ./custom-cont-init.d:/custom-cont-init.d:ro             # DJVU support (djvulibre + regex)
-      - /home/yurik/data/calibre/books_topic:/calibre-library    # <-- библиотека (своя папка)
-      - /home/yurik/data/calibre/books_topic_dwl:/cwa-book-ingest # <-- папка импорта
+      - ~/data/calibre/books_topic:/calibre-library    # <-- библиотека (своя папка)
+      - ~/data/calibre/books_topic_dwl:/cwa-book-ingest # <-- папка импорта
     ports:
       - 1232:8083                  # <-- свободный порт хоста
     restart: unless-stopped
